@@ -1,16 +1,13 @@
-
-'use strict'
-
 var chai = require('chai');
-var assert = chai.assert;
+var expect = chai.expect;
+var getPrime = require('../app/getPrimes.js');
 
-var myApp = require('../app/getPrimes.js');
-describe("Test for get prime that ", function() {
-	 it("should return [2, 3,5,7 ]  ", function() {
-    assert(myApp.getPrime(10) == [2,3,5] );
-  })
-	it("should return [2,3,5,7,11,13,17,19 ]  ", function() {
+describe("Get Prime tests ", function() {
 
-    assert(myApp(20)).equal([2,3,5,7,11,13,17,19] );
-  }) 
+ it("should return [2, 3, 5, 7] for prime number from 0 to n", function() {
+   expect(getPrime(10)).to.be.eql([2, 3, 5, 7]);
+ });
+ it("should return [2, 3, 5, 7, 11, 13, 17, 19, 23, 29] for prime number from 0 to n", function() {
+   expect(getPrime(30)).to.be.eql([2, 3, 5, 7, 11, 13, 17, 19, 23, 29]);
+ });
 })
